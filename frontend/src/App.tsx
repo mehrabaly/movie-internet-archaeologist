@@ -46,7 +46,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/movies/search?query=${encodeURIComponent(query)}`
+        `https://movie-internet-archaeologist.fastapicloud.dev/movies/search?query=${encodeURIComponent(query)}`
       )
 
       if (!response.ok) {
@@ -74,7 +74,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/movies/${movieId}`
+        `https://movie-internet-archaeologist.fastapicloud.dev/movies/${movieId}`
       )
 
       if (!response.ok) {
