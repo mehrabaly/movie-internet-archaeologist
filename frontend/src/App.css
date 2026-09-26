@@ -1,0 +1,536 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #2b1a12;
+}
+
+.app {
+  min-height: 100vh;
+  background: #2b1a12;
+  color: #f1e6d8;
+  font-family: "Courier New", monospace;
+  padding: 0 30px 80px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: calc(100% + 60px);
+  margin-left: -30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 10px 30px;
+  background: #5a3a28;
+}
+
+.brand {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #d8c2ad;
+  white-space: nowrap;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+  display: flex;
+  width: min(550px, 100%);
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 16px;
+  border: 1px solid #d8c2ad;
+  border-radius: 0;
+  background: #5a3a28;
+  color: #f1e6d8;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: #b99e87;
+}
+
+.search-box input:focus {
+  border-color: #f1e6d8;
+}
+
+.search-box button {
+  padding: 10px 24px;
+  border: 1px solid #d8c2ad;
+  border-left: none;
+  border-radius: 0;
+  background: #d8b18d;
+  color: #3b251a;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.search-box button:hover {
+  opacity: 0.7;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+  width: min(900px, 100%);
+  margin: 140px auto 100px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+.intro h1 {
+  font-size: clamp(50px, 8vw, 96px);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -5px;
+}
+
+.intro h1 span {
+  color: #e0b894;
+}
+
+.intro p {
+  max-width: 600px;
+  margin: 35px auto 0;
+  color: #d8c2ad;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.results {
+  width: min(1200px, 100%);
+  margin: 70px auto 0;
+  padding: 35px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px 25px;
+  background: #2b1a12;
+  animation: fadeIn 0.5s ease;
+}
+
+.movie-card {
+  min-width: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.movie-card:hover {
+  opacity: 0.7;
+}
+
+.movie-card img,
+.no-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.no-poster {
+  background: #2b1a12;
+  border: 1px solid #8c6d57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b99e87;
+  font-size: 12px;
+}
+
+.movie-info {
+  padding-top: 12px;
+}
+
+.movie-info h2 {
+  margin: 0;
+  color: #f1e6d8;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.movie-info p {
+  margin: 5px 0 0;
+  color: #c8ad96;
+  font-size: 13px;
+}
+
+/* =========================
+   MOVIE DETAIL PAGE
+========================= */
+
+.movie-detail {
+  width: min(1200px, 100%);
+  margin: 70px auto 0;
+  animation: fadeIn 0.5s ease;
+}
+
+.movie-detail-main {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 55px;
+  align-items: start;
+}
+
+/* =========================
+   MOVIE POSTER
+========================= */
+
+.movie-detail-poster {
+  width: 180px;
+}
+
+.movie-detail-poster img,
+.movie-detail-poster .no-poster {
+  width: 180px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.poster-title {
+  margin: 12px 0 0;
+  color: #f1e6d8;
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+/* =========================
+   MOVIE INFORMATION
+========================= */
+
+.movie-detail-info {
+  padding-top: 5px;
+}
+
+.movie-detail-info h1 {
+  margin: 0;
+  color: #f1e6d8;
+  font-size: clamp(35px, 5vw, 64px);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+.movie-year {
+  margin: 12px 0 0;
+  color: #d8c2ad;
+  font-size: 18px;
+}
+
+.movie-genres {
+  margin: 28px 0 0;
+  color: #e0b894;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   OVERVIEW
+========================= */
+
+.overview-section {
+  margin-top: 55px;
+  max-width: 750px;
+}
+
+.overview-section h2,
+.cast-section h2 {
+  margin: 0 0 18px;
+  color: #d8b18d;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.movie-overview {
+  margin: 0;
+  color: #d8c2ad;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================
+   MOVIE META
+========================= */
+
+.movie-meta {
+  display: flex;
+  gap: 60px;
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px solid #5a3a28;
+}
+
+.movie-meta p {
+  margin: 0;
+  color: #d8c2ad;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.movie-meta strong {
+  color: #d8b18d;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   CAST
+========================= */
+
+.cast-section {
+  margin-top: 90px;
+  padding-bottom: 80px;
+}
+
+.cast-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+
+.cast-person {
+  width: 150px;
+  padding: 10px;
+  border: 1px solid #5a3a28;
+  background: #2b1a12;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cast-person:hover {
+  opacity: 0.85;
+  transform: translateY(-4px);
+  border-color: #d8b18d;
+}
+
+/* =========================
+   ACTOR PHOTO
+========================= */
+
+.cast-person img,
+.cast-no-image {
+  width: 70px;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+}
+
+.cast-no-image {
+  background: #2b1a12;
+  border: 1px solid #5a3a28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b99e87;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* =========================
+   ACTOR INFORMATION
+========================= */
+
+.cast-person-info {
+  padding: 10px 0 2px;
+}
+
+.cast-person strong {
+  display: block;
+  color: #f1e6d8;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.cast-person span {
+  display: block;
+  margin-top: 6px;
+  color: #b99e87;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.status {
+  width: min(1200px, 100%);
+  margin: 60px auto;
+  color: #d8c2ad;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .results {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cast-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 30px;
+  }
+
+  .brand {
+    text-align: center;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .results {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .movie-detail-main {
+    grid-template-columns: 140px 1fr;
+    gap: 30px;
+  }
+
+  .movie-detail-poster {
+    width: 140px;
+  }
+
+  .movie-detail-poster img,
+  .movie-detail-poster .no-poster {
+    width: 140px;
+  }
+
+  .movie-detail-info h1 {
+    font-size: 35px;
+  }
+
+  .movie-meta {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cast-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cast-person {
+    width: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .app {
+    padding: 0 15px 60px;
+  }
+
+  .header {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    padding: 10px 15px;
+  }
+
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 15px;
+  }
+
+  .intro {
+    margin-top: 100px;
+  }
+
+  .intro h1 {
+    letter-spacing: -3px;
+  }
+
+  .movie-detail-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .movie-detail-poster {
+    width: 150px;
+  }
+
+  .movie-detail-poster img,
+  .movie-detail-poster .no-poster {
+    width: 150px;
+  }
+
+  .movie-detail-info h1 {
+    font-size: 32px;
+  }
+
+  .cast-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .cast-person {
+    width: 130px;
+  }
+
+  .cast-person img,
+  .cast-no-image {
+    width: 60px;
+    height: 78px;
+  }
+}

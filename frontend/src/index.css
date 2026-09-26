@@ -1,0 +1,171 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0b0b;
+}
+
+.app {
+  min-height: 100vh;
+  background: #0b0b0b;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  padding: 80px 20px;
+}
+
+.hero {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #888;
+  margin-bottom: 25px;
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -4px;
+}
+
+h1 span {
+  color: #d4a373;
+}
+
+.description {
+  max-width: 600px;
+  margin: 30px auto 40px;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.search-box {
+  display: flex;
+  max-width: 700px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 18px 20px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #151515;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: #d4a373;
+}
+
+.search-box button {
+  padding: 18px 30px;
+  border: none;
+  border-radius: 8px;
+  background: #d4a373;
+  color: #111;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background: #e2b88b;
+}
+
+.status {
+  text-align: center;
+  color: #888;
+  margin-top: 30px;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px;
+  margin-top: 70px;
+}
+
+.movie-card {
+  background: #151515;
+  border: 1px solid #252525;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  border-color: #d4a373;
+}
+
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-info {
+  padding: 18px;
+}
+
+.movie-info h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.movie-info p {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.movie-info p:first-of-type {
+  color: #d4a373;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 50px 15px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .movie-info {
+    padding: 12px;
+  }
+
+  .movie-info h2 {
+    font-size: 16px;
+  }
+}
